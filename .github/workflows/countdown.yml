@@ -10,9 +10,12 @@
 name: Daily Countdown Email
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Runs at 18:30 UTC = 00:00 IST (midnight India time)
-    - cron: "30 18 * * *"
+    - cron: "*/5 * * * *"
 
   # Lets you trigger it manually from the GitHub Actions tab (great for testing)
   workflow_dispatch:

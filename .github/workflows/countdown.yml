@@ -14,8 +14,7 @@ on:
     branches:
       - main
   schedule:
-    # Runs at 18:30 UTC = 00:00 IST (midnight India time)
-    - cron: "*/5 * * * *"
+    - cron: "34 18 * * *"
 
   # Lets you trigger it manually from the GitHub Actions tab (great for testing)
   workflow_dispatch:

@@ -75,7 +75,7 @@ TIMEZONE=Asia/Kolkata
 
 ### 4. Generate a Gmail App Password
 
-1. Visit [Google Account Security](https://myaccount.google.com/security).
+1. Visit [Google Account Security]
 2. Enable **2-Step Verification** if you haven't already.
 3. Go to [App Passwords](https://myaccount.google.com/apppasswords).
 4. Select **Mail** → **Other (custom name)** → name it "Countdown Mailer".

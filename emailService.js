@@ -23,9 +23,13 @@ function buildHtml(daysRemaining, message) {
   const filled = Math.round(pct * circ);
   const offset = Math.round(circ * 0.25); // start at 12 o'clock
 
-  const dateStr = new Date().toLocaleDateString("en-US", {
-    weekday: "long", year: "numeric", month: "long", day: "numeric",
-  });
+ const dateStr = new Date().toLocaleDateString("en-IN", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "Asia/Kolkata"
+});
 
   const headerTitle = isToday
     ? "Happy Birthday Jayapriya..!! 😍❤️"

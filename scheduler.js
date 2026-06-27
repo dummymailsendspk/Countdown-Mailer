@@ -10,9 +10,25 @@ import { sendEmail } from "./emailService.js";
 
 function calculateDaysRemaining() {
   const now = new Date();
-  const todayMidnight = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
-  const msPerDay = 1000 * 60 * 60 * 24;
-  return Math.round((config.targetDate.getTime() - todayMidnight.getTime()) / msPerDay);
+
+  // Convert current time to IST
+  const istNow = new Date(
+    now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+  );
+
+  // Today's midnight in IST
+  const today = new Date(
+    istNow.getFullYear(),
+    istNow.getMonth(),
+    istNow.getDate()
+  );
+
+  // Target date in IST
+  const target = new Date(2026, 6, 21); // July 21, 2026
+
+  const msPerDay = 24 * 60 * 60 * 1000;
+
+  return Math.floor((target - today) / msPerDay);
 }
 
 export async function runDailyTask() {
@@ -43,7 +59,7 @@ export async function runDailyTask() {
 
   // 4. Subject line
   const subject = daysRemaining === 0
-    ? "🎉 Today's finally the day!"
+    ? "🎉Happiest Birthday Jayapriya..!!😍❤️🤗"
     : `💌 ${daysRemaining} Day${daysRemaining === 1 ? "" : "s"} to Go!`;
 
   // 5. Send email

@@ -10,6 +10,9 @@
 name: Daily Countdown Email
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Runs at 18:30 UTC = 00:00 IST (midnight India time)
     - cron: "*/5 * * * *"

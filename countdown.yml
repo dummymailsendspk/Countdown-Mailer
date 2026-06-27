@@ -1,0 +1,46 @@
+# .github/workflows/countdown.yml
+# Runs the countdown mailer every day at midnight IST (18:30 UTC).
+# Change the cron time if your crush is in a different timezone.
+#
+# UTC offset reference:
+#   IST (India)    → 18:30 UTC  (midnight IST = 18:30 UTC previous day)
+#   EST (New York) → 05:00 UTC
+#   GMT (London)   → 00:00 UTC
+
+name: Daily Countdown Email
+
+on:
+  schedule:
+    # Runs at 18:30 UTC = 00:00 IST (midnight India time)
+    - cron: "30 18 * * *"
+
+  # Lets you trigger it manually from the GitHub Actions tab (great for testing)
+  workflow_dispatch:
+
+jobs:
+  send-email:
+    name: Generate & Send Countdown Email
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Send daily countdown email
+        env:
+          SENDER_EMAIL:       ${{ secrets.SENDER_EMAIL }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL:    ${{ secrets.RECIPIENT_EMAIL }}
+          TARGET_DATE:        ${{ secrets.TARGET_DATE }}
+          GEMINI_API_KEY:     ${{ secrets.GEMINI_API_KEY }}
+          TIMEZONE:           ${{ secrets.TIMEZONE }}
+        run: node index.js

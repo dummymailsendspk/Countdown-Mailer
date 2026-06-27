@@ -1,0 +1,16 @@
+{
+  "name": "countdown-mailer",
+  "version": "1.0.0",
+  "description": "Sends a daily AI-generated countdown email until a target date.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.14"
+  }
+}

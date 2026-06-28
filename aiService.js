@@ -61,6 +61,13 @@ THOUGHT: <one short meaningful sentence>
 
 CLOSING: <one warm sign-off>
 
+Additionally:
+- Include exactly ONE short Tamil phrase (2-6 words) naturally somewhere in the GREETING, BODY, THOUGHT, or CLOSING.
+- The Tamil phrase should be written in Tamil script, not English transliteration.
+- Use a different Tamil phrase each day.
+- Keep it cute, affectionate, and natural.
+- Do not force it into every sentence.
+
 Rules:
 - Each section must be on its own line and start with its label followed by a colon.
 - Mention the countdown naturally in the BODY.

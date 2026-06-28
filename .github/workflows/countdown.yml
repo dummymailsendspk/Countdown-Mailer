@@ -10,11 +10,7 @@
 name: Daily Countdown Email
 
 on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: "34 18 * * *"
+
 
   # Lets you trigger it manually from the GitHub Actions tab (great for testing)
   workflow_dispatch:
